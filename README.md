@@ -23,7 +23,7 @@ The unresolved problem is **statewide service orchestration**:
 
 **RAJ-KRISHI DRONE GRID is an MVP prototype of that missing execution layer.** It federates authoritative systems; it does not replace them.
 
-> **MVP status:** functional submission demonstrator with synthetic mission/finance data, a live public IMD gateway, explicit Government-system adapters, simulated SSO/Jan Aadhaar access journeys, interactive GIS, guided evaluator flow and deployment-ready Next.js/Vercel configuration. It is **not** an official Government production system and leaves room for Department customisation, security accreditation, authorised API access and field-pilot configuration.
+> **MVP status:** functional submission demonstrator with synthetic mission/finance data, an official IMD API gateway with credential-aware graceful fallback, explicit Government-system adapters, simulated SSO/Jan Aadhaar access journeys, interactive GIS, guided evaluator flow and deployment-ready Next.js/Vercel configuration. It is **not** an official Government production system and leaves room for Department customisation, security accreditation, authorised API access and field-pilot configuration.
 
 ---
 
@@ -157,8 +157,8 @@ A dedicated Government programme view includes:
 - Syntheon institutional revenue model;
 - outcomes for farmers, providers, Drone Didis/FPOs/CHCs, officers, KVKs and trainees.
 
-### 10. Live IMD public gateway
-The server-side `/api/imd` route tests the official public district-nowcast gateway and degrades gracefully. This is the only external Government feed intentionally labelled `LIVE_PUBLIC` in the MVP.
+### 10. Official IMD API gateway + graceful fallback
+The server-side `/api/imd` route attempts the official district-nowcast gateway and degrades gracefully when authenticated upstream access is unavailable. The runtime exposes its actual state; the current public deployment reports credential/auth fallback rather than pretending the weather feed is live.
 
 ---
 
@@ -169,7 +169,7 @@ The server-side `/api/imd` route tests the official public district-nowcast gate
 | **RajKisan / SSO / Jan Aadhaar / e-Mitra** | State service access / identity-assisted journeys | familiar entry / assisted-service adapter | `DEMO_ONLY / ADAPTER_READY` |
 | **AgriStack / UFSI** | Farmer / farmland plot / crop registries with consent architecture | service references, no parallel farmer master | `CONTRACT_DEFINED` |
 | **DGCA eGCA / Digital Sky** | UIN, RPC/RPTO and regulatory / airspace workflows | evidence adapter / state machine | `AUTH_REQUIRED` |
-| **IMD** | official weather / warnings / nowcast | mission weather context | `LIVE_PUBLIC` |
+| **IMD** | official weather / warnings / nowcast | mission weather context | `PUBLIC_API / AUTH-FALLBACK` |
 | **FARMS / CHC** | machinery / custom-hiring capacity | provider-capacity federation | `FEDERATION_READY` |
 | **NaMo Drone Didi MIS** | programme asset / pilot / utilisation monitoring | cross-provider demand / mission federation | `FEDERATION_READY` |
 | **KVK / DGCA-authorised RPTO** | extension / agronomic support / regulated training | gap-led capacity pipeline | `WORKFLOW_DEFINED` |
@@ -229,7 +229,7 @@ Detailed matrix: [`docs/SCHEME_CONVERGENCE_AND_PUBLIC_VALUE.md`](docs/SCHEME_CON
 These are **proposed roles, not claimed partnerships**.
 
 ### Phase 1 · Days 0–30
-Authority matrix, approved data contracts, provider/RPC onboarding, live IMD, rule packs, Demand Density, Reach Index, end-to-end sandbox mission.
+Authority matrix, approved data contracts, provider/RPC onboarding, IMD API gateway + credential/fallback handling, rule packs, Demand Density, Reach Index, end-to-end sandbox mission.
 
 ### Phase 2 · Days 31–60
 Controlled authorised field missions, provider workflow, assisted farmer journey, proof-of-service, exception/grievance flow, settlement evidence, optional SUTRA offline test.
@@ -353,7 +353,7 @@ app/
   mvp-access.tsx              → splash, dummy SSO/Jan Aadhaar, extension + programme modules
   command-v2.tsx              → core operations command centre
   map-panel.tsx               → interactive GIS missions + coverage gaps
-  api/imd/route.ts            → live public IMD gateway / graceful fallback
+  api/imd/route.ts            → official IMD API gateway / auth-aware graceful fallback
 
 docs/
   EVALUATOR_SCORECARD.md
