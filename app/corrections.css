@@ -1,4 +1,4 @@
-/* Submission freeze factual overlays and live public gateway indicator. */
+/* Submission freeze factual overlays and live/public-gateway truth controls. */
 .side-foot .tiny-label{font-size:0}
 .side-foot .tiny-label::after{content:"STATEWIDE ARCHITECTURE";font-size:10px;letter-spacing:.12em}
 .side-foot strong{font-size:0}
@@ -10,6 +10,13 @@
 .gateway-dot{width:7px;height:7px;border-radius:50%;background:#c98110;box-shadow:0 0 0 3px rgba(201,129,16,.12)}
 .gateway-live{color:#176f50}.gateway-live .gateway-dot{background:#1d8d64;box-shadow:0 0 0 3px rgba(29,141,100,.12)}
 .gateway-fallback{color:#8a640f}.gateway-fallback .gateway-dot{background:#c98110}
-/* The earlier dashboard language button only changed its own label. Hide it rather than imply full localisation. Hindi/voice is demonstrated as an assisted-field capability and remains pilot-customisable. */
+/* The earlier dashboard language button only changed its own label. Hide it rather than imply full localisation. Hindi/voice remains an assisted-field/pilot customisation capability. */
 main[class*="shell"] header button:first-of-type{display:none!important}
+/* Production truth patch: the current official IMD API gateway requires authenticated API access and is returning graceful fallback in this deployment. Do not visually claim LIVE_PUBLIC while fallback is active. */
+div[class*="mapFooter"] span:last-child{font-size:0}
+div[class*="mapFooter"] span:last-child::after{content:"IMD official API gateway · credential-dependent · graceful fallback supported";font-size:inherit}
+div[class*="integrationTable"]>div:nth-child(2) b[class*="integrationStatus"]{font-size:0}
+div[class*="integrationTable"]>div:nth-child(2) b[class*="integrationStatus"]::after{content:"PUBLIC_API · FALLBACK";font-size:8px}
+div[class*="truthGrid"]>div:nth-child(4) em{font-size:0}
+div[class*="truthGrid"]>div:nth-child(4) em::after{content:"PUBLIC_API · AUTH/FALLBACK";font-size:9px}
 @media(max-width:850px){.gateway-status{right:12px;bottom:12px}}
