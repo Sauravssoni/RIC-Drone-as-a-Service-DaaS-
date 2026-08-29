@@ -1,94 +1,144 @@
-# 3-Minute Evaluator Demo Runbook
+# 3:45 Evaluator Demo Runbook — MVP Prototype
 
 ## Demo goal
 
-Prove one complete public-service journey instead of touring disconnected screens.
+Prove one coherent **public-service operating model** instead of touring disconnected features.
 
-### 00:00–00:20 — State problem
+## 00:00–00:20 — MVP access + credibility
+
+Start on the institutional login screen.
+
+Show the three entry modes:
+- **Evaluator**;
+- **Government SSO — DEMO**;
+- **Jan Aadhaar-assisted — DEMO**.
+
+Say:
+> “This is deliberately labelled an MVP prototype. RajKisan already uses SSO and Jan Aadhaar-assisted journeys, so we mirror familiar Rajasthan access patterns while making clear that no privileged Government authentication is being fabricated.”
+
+Enter **Evaluator** mode.
+
+## 00:20–00:45 — State problem
+
 Open **State Command**.
 
-Say: “Rajasthan already has farmer identity rails, CHCs, Drone Didi assets, KVKs, RPTOs and regulated drone services. The missing layer is universal orchestration: which farmer needs what service, whether nearby demand can be pooled, whether qualified capacity exists, whether a mission is safe/compliant, and what evidence makes public support payable.”
+Say:
+> “Rajasthan already has Farmer IDs, RajKisan, CHCs, Drone Didi capacity, KVKs, RPTOs and regulated drone services. The missing layer is universal orchestration: where demand exists, whether it can be pooled, whether compliant capacity exists, whether remote blocks can be served, and what evidence makes a service payable.”
 
 Point to:
-- synthetic-demo banner;
-- current public-evidence cards;
-- Universal Reach map;
-- explicit IMD live-gateway badge.
+- `Evaluator scenario` banner;
+- sourced public-evidence cards;
+- interactive Rajasthan GIS;
+- non-selectable coverage-gap markers;
+- IMD live/fallback badge.
 
-### 00:20–00:55 — Demand Density Engine
+## 00:45–01:15 — Demand Density
+
 Run **Judge Journey → Demand Density**.
 
 Demonstrate:
-`67 fragmented requests → 9 executable missions`
+`67 fragmented demo requests → 9 executable demo missions`
 
-Explain that hard compatibility rules run before optimisation:
-- plot proximity;
-- crop/stage;
-- service/input SOP;
-- time/weather window;
-- drone capability;
-- compliance;
-- delivered cost.
+Explain that hard compatibility rules run before route/cost optimisation:
+`plot + crop/stage + service/input + time + weather + drone capability + compliance + economics`.
 
-Key line: **“We optimise the acre-service, not the booking.”**
+Key line:
+> **“We optimise the acre-service, not the booking.”**
 
-### 00:55–01:25 — Universal Service Coverage
+## 01:15–01:45 — Universal Service Coverage
+
 Advance to **Universal Reach**.
 
-Show Kushalgarh demo score `41/100` and the Coverage Contract Engine:
-1. detect gap;
-2. bundle 104 requests / 137 acres;
-3. call eligible capacity from Drone Didi / FPO / CHC / private providers;
-4. apply Department-configured viability-gap support only after verified service.
+Show the Kushalgarh evaluator scenario and Coverage Contract logic:
+1. detect access gap;
+2. bundle compatible acreage;
+3. call eligible Drone Didi / FPO / CHC / private capacity;
+4. apply **Department-configured** support where approved;
+5. pay only on verified service evidence.
 
-Key line: **“A marketplace can show a remote block has no provider. The Grid creates an accountable mechanism to close the gap.”**
+Key line:
+> **“A marketplace can tell Government a remote block has no provider. The Grid gives Government a mechanism to close the gap.”**
 
-### 01:25–01:55 — Mission Passport
+## 01:45–02:15 — Mission Passport
+
 Advance to **Mission Control**.
 
 Show:
-- farmer consent + plot context;
+- consent + plot context;
 - UIN / RPC references;
 - IMD weather gate;
 - airspace evidence state;
-- source-backed agronomic rule pack;
+- deterministic agronomic rule pack;
 - tank/input traceability;
-- simulated telemetry.
+- `SIMULATED_DEVICE_STREAM` telemetry.
 
-Key line: **“AI may explain a rule. It cannot waive regulation or agronomic policy.”**
+Key line:
+> **“AI may explain a rule. It cannot waive regulation, agronomic policy or public-money authority.”**
 
-### 01:55–02:25 — Proof-of-Service + DBT
+## 02:15–02:40 — Proof-of-Service
+
 Advance to **Evidence & DBT**.
 
-Show one atomic service receipt binding:
-farmer bundle → plots → actual treated area → UIN/RPC → input lot → weather → farmer acknowledgement → receipt digest.
+Show the atomic receipt:
+`farmer/plot refs → actual area → UIN/RPC → input/application → weather → acknowledgement → receipt digest`.
 
-Then show settlement decomposition.
+Then show the illustrative settlement decomposition.
 
-Key line: **“Government support attaches to a verified acre-service, not an invoice or an idle asset.”**
+Key line:
+> **“Government support can attach to a verified acre-service, not a self-declared invoice or an idle asset.”**
 
-### 02:25–02:45 — Capacity Digital Twin
+## 02:40–03:00 — Capacity Digital Twin
+
 Advance to **Fleet & RPC Capacity**.
 
-Show forecast demand vs productive capacity and KVK → RPTO → RPC → agri module → supervised activation.
+Show forecast demand vs productive capacity and the KVK → RPTO → RPC → agriculture module → supervised activation pipeline.
 
-Point to SUTRA ID Edge as an **optional** offline/voice field node.
+Point to SUTRA ID Edge as **optional** weak-connectivity infrastructure.
 
-Key line: **“We train and stage capacity where the crop window predicts a shortage.”**
+Key line:
+> **“Train and stage capacity where the crop window predicts a shortage — not where certificate counts look impressive.”**
 
-### 02:45–03:00 — Integration fabric + close
-Advance to **Government Integration Fabric**.
+## 03:00–03:20 — Extension Campaigns
 
-Show maturity labels and authority boundaries.
+Use the top module switcher → **Extension Campaigns**.
+
+Show:
+`signal → scout → human review → authorised action → follow-up → closure`.
+
+Click the campaign stages and the schematic target map.
+
+Key line:
+> **“Drone-as-a-Service becomes agri-extension infrastructure when the State can scout first, decide under human/rule authority, intervene only when justified, and verify follow-up.”**
+
+## 03:20–03:35 — Programme & Finance
+
+Switch to **Programme & Finance**.
+
+Show:
+- ₹74.80 lakh / 90-day joint pilot;
+- ₹0 core drone procurement;
+- scheme convergence;
+- Government/institutional revenue model;
+- no farmer-data monetisation.
+
+Key line:
+> **“Before buying more drones, prove how much more public value Rajasthan can extract from suitable authorised capacity already in or reachable by the ecosystem.”**
+
+## 03:35–03:45 — Integration fabric + close
+
+Return to **Operations → Government Integration Fabric**.
 
 Close:
+> “RAJ-KRISHI DRONE GRID does not replace RajKisan, Jan Aadhaar, AgriStack, DGCA systems, Drone Didi, KVKs or providers. It is the MVP service-execution layer connecting them into one measurable statewide mission network.”
 
-> “RAJ-KRISHI DRONE GRID does not ask Rajasthan to replace RajKisan, AgriStack, DGCA systems, Drone Didi or existing providers. It connects them into one measurable statewide service network. A drone becomes public agricultural infrastructure only when a farmer can reliably access a compliant service from it.”
+## Never say
 
-## Never say in the demo
-
-- “Digital Sky API is live” unless privileged authorised access is actually available.
-- “DBT is integrated” if only the settlement contract is simulated.
-- “These are current Rajasthan mission counts” — the operations scenario is synthetic.
-- “Drones increase yield by X%” without a controlled crop-specific field result.
-- “AI approves flights / pesticides / subsidy.” It does not.
+- “This is an official Rajasthan portal.”
+- “SSO / Jan Aadhaar is live.”
+- “Digital Sky / eGCA API is live” without credentials.
+- “DBT is integrated” when settlement is simulated.
+- “These mission counts/prices are current Rajasthan data.”
+- “The State currently pays this service subsidy.”
+- “Drones increase yield by X%” without controlled field evidence.
+- “AI approves flights / pesticides / subsidy.”
+- “40 Drone Didis is Rajasthan's total fleet.”
