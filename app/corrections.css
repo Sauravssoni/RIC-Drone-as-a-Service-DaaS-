@@ -1,0 +1,13 @@
+/* Current-state factual overlays and live public gateway indicator. */
+.side-foot .tiny-label{font-size:0}
+.side-foot .tiny-label::after{content:"STATEWIDE ARCHITECTURE";font-size:10px;letter-spacing:.12em}
+.side-foot strong{font-size:0}
+.side-foot strong::after{content:"41 revenue districts";font-size:11px}
+.side-foot small{font-size:0}
+.side-foot small::after{content:"RAJ MASTERS baseline · demo nodes shown";font-size:9px}
+.side-foot .meter i{width:100%!important}
+.gateway-status{position:fixed;right:22px;bottom:18px;z-index:850;display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #d4e2ed;border-radius:999px;padding:7px 10px;font-size:9px;font-weight:800;color:#547088;box-shadow:0 8px 22px rgba(16,51,83,.13)}
+.gateway-dot{width:7px;height:7px;border-radius:50%;background:#c98110;box-shadow:0 0 0 3px rgba(201,129,16,.12)}
+.gateway-live{color:#176f50}.gateway-live .gateway-dot{background:#1d8d64;box-shadow:0 0 0 3px rgba(29,141,100,.12)}
+.gateway-fallback{color:#8a640f}.gateway-fallback .gateway-dot{background:#c98110}
+@media(max-width:850px){.gateway-status{right:12px;bottom:12px}}
