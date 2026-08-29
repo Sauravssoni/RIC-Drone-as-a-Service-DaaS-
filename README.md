@@ -1,291 +1,370 @@
+<div align="center">
+
 # RAJ-KRISHI DRONE GRID
 
-> **Drone-as-a-Service (DaaS) Platform for Universal Agri-Extension Reach — Rajasthan Innovation Challenge 2026**
+### **MVP PROTOTYPE · Drone-as-a-Service Platform for Universal Agri-Extension Reach**
 
-**RAJ-KRISHI DRONE GRID is a proposed statewide service-orchestration layer for agricultural drones.** It is not another “book a drone” marketplace and it does not replace RajKisan, AgriStack, DGCA systems, Drone Didi, CHCs, KVKs or private providers.
+**Rajasthan Innovation Challenge 2026 · Agriculture**  
+**Syntheon Tech Private Limited**
 
-It connects those rails into one operational loop:
+> **A drone does not become agricultural infrastructure because it was purchased. It becomes infrastructure when an eligible farmer can reliably access a compliant, affordable and verifiable service from it.**
 
-**need → consented plot context → demand density → coverage obligation → compliant capacity → mission → proof of service → support/settlement evidence → extension intelligence**
-
-### Core thesis
-
-India has already invested in drones, pilots, CHCs, Drone Didis, training institutions and digital public infrastructure. The next bottleneck is **universal utilisation**: making the right compliant drone service reachable by the right farmer, in the right agronomic/weather window, at an affordable pooled cost, with evidence that the service actually occurred.
+</div>
 
 ---
 
-## Why this is different
+## 60-second decision memo
 
-| Existing layer | What it already does | What RAJ-KRISHI adds |
-|---|---|---|
-| RajKisan / assisted channels | Farmer-facing agriculture services | Drone-service orchestration and mission lifecycle |
-| FARMS / CHC | Machinery/custom-hiring discovery | Drone-specific demand density, compliance and evidence |
-| NaMo Drone Didi | Scheme assets, pilots and programme MIS | Vendor-neutral universal demand and utilisation across provider classes |
-| AgriStack | FarmerID, plot and crop registries | Service-execution references; no parallel farmer master |
-| eGCA / Digital Sky | Regulatory services / airspace workflows | Mission evidence and compliance state machine; no fake approvals |
-| IMD | Public weather/nowcast | Live mission-weather context |
-| KVK / RPTO | Extension + regulated training | Demand-led RPC capacity planning |
-| DBT / treasury | Public-money authority | Proof-of-service eligibility/evidence package |
+Rajasthan does **not** need another isolated “book a drone” marketplace. Public and regulated building blocks already exist: RajKisan and assisted state channels, AgriStack/State Farmer Registry, FARMS/CHCs, NaMo Drone Didi, KVKs, DGCA eGCA/Digital Sky workflows, IMD and Government finance rails.
 
-**The product moat is orchestration, evidence and universal access — not drone hardware.**
+The unresolved problem is **statewide service orchestration**:
+
+**Where is demand? → can it be pooled? → is compliant capacity available? → can a remote block be served economically? → is the mission safe and agronomically valid? → did the service actually happen? → what evidence supports payment/support? → what capacity must be trained before the next crop window?**
+
+**RAJ-KRISHI DRONE GRID is an MVP prototype of that missing execution layer.** It federates authoritative systems; it does not replace them.
+
+> **MVP status:** functional submission demonstrator with synthetic mission/finance data, a live public IMD gateway, explicit Government-system adapters, simulated SSO/Jan Aadhaar access journeys, interactive GIS, guided evaluator flow and deployment-ready Next.js/Vercel configuration. It is **not** an official Government production system and leaves room for Department customisation, security accreditation, authorised API access and field-pilot configuration.
 
 ---
 
-# Exact challenge fit
+# Problem statement → product response
 
-The official challenge asks for:
-
-1. **Demand aggregation and booking** → `Demand Density Engine`
-2. **Digital Sky/UIN regulatory compliance** → `eGCA / Digital Sky Compliance Adapter + Mission Passport`
-3. **Subsidised service fee through DBT** → `Policy-configured Service Support + Proof-of-Service Settlement Evidence`
-4. **RPC training/certification with KVKs/RPTOs** → `Seasonal Capacity Digital Twin + KVK→RPTO→RPC Pipeline`
-5. **AgriStack/department API integration for logs/application data** → `Consent-aware UFSI contracts + Mission Evidence Fabric`
-
-The prototype makes each requirement visible and testable instead of leaving it as a roadmap bullet.
+| Challenge issue | What fails operationally | MVP response | Pilot measure |
+|---|---|---|---|
+| Remote / tribal coverage | Marketplace demand is too sparse to attract a provider | **Universal Reach Index + Coverage Contract Engine** | underserved-block serviceability before/after |
+| High ₹/hectare for smallholders | One small plot creates dead kilometres and poor utilisation | **Demand Density Engine** | mobilisation ₹/acre vs unclustered comparator |
+| RPC shortage | Training happens without seasonal demand intelligence | **Seasonal Capacity Digital Twin + KVK→RPTO pipeline** | forecast vs actual pilot-hour gap |
+| Fragmented regulatory workflow | UIN/RPC/airspace/agronomic evidence sits in separate systems | **Mission Compliance Passport** | pre-dispatch evidence completeness |
+| Service-fee support / DBT | Invoice ≠ proof that an acre-service occurred | **Proof-of-Service Receipt** | evidence completeness + settlement exceptions |
+| Department/KVK integration | Drones remain standalone spray assets | **Extension Campaign Command** | signal-to-scout / response time |
+| Weak rural connectivity | Field intake and acknowledgement can fail | **Optional SUTRA ID Edge** | offline queue success + sync reconciliation |
+| No statewide utilisation view | Asset count is mistaken for service capacity | **State Command + Reach/Capacity analytics** | productive acres / provider / month |
 
 ---
 
-# Flagship capabilities
+# The state operating loop
 
-## 1. Demand Density Engine — optimise the acre-service, not the booking
+```mermaid
+flowchart LR
+    A[Farmer / Officer / KVK demand] --> B[Consent + FarmerID / plot refs]
+    B --> C[Demand Density Engine]
+    C --> D{Universal reach adequate?}
+    D -- No --> E[Coverage Contract / capacity call]
+    D -- Yes --> F[Mission planner]
+    E --> F
+    F --> G[Weather + agronomic + regulatory evidence gates]
+    G --> H[Drone Didi / FPO / CHC / authorised DSP]
+    H --> I[Mission execution + geo-track / telemetry]
+    I --> J[Proof-of-Service receipt]
+    J --> K[Government-configured support / settlement evidence]
+    J --> L[Extension / outcome intelligence]
+    L --> M[Seasonal capacity planning]
+    M --> C
+```
 
-Farmer requests are clustered only when **hard compatibility constraints** pass first:
+### Product principle
 
-- plot proximity;
-- crop + crop stage;
-- service/input compatibility;
-- requested time window;
-- weather window;
-- drone capability;
-- regulatory/agronomic rules;
-- service economics.
+**Authoritative registries remain source-owned. The Grid owns service orchestration, evidence and measurable reach.**
 
-Only then does the optimiser minimise dead kilometres and mobilisation cost.
+---
 
-The evaluator scenario demonstrates **67 fragmented requests → 9 executable missions**. Those counts/costs are synthetic demo data and are explicitly labelled as such.
+# What is actually functional in the MVP
 
-## 2. Universal Service Coverage — the new public-service layer
+### 1. Government-style access shell
+- **Evaluator access** with role selection.
+- **Government SSO visual simulation** using dummy credentials.
+- **Jan Aadhaar-assisted farmer visual simulation** using a masked demo family reference.
+- Persistent **MVP PROTOTYPE** labelling.
+- Explicit warning: **no live Rajasthan SSO / Jan Aadhaar authentication occurs**.
 
-A marketplace can tell Government that a remote block has low provider density. The Grid creates a mechanism to **close** the gap.
+This mirrors familiar RajKisan access semantics without fabricating privileged access.
 
-`Detect low-reach block → bundle compatible demand → call eligible capacity → apply Department-configured viability-gap support → pay only on verified acre-service`
+### 2. State Drone Command Centre
+- Rajasthan GIS / OpenStreetMap mission visualisation.
+- Selectable mission markers aligned with command records.
+- Separate, non-selectable **coverage-gap markers** for illustrative underserved blocks.
+- Demand, reach, mission, service-cost and evidence analytics.
+- Synthetic operational figures clearly separated from sourced public facts.
 
-The `Coverage Contract Engine` can compare eligible Drone Didi, FPO, CHC and private provider capacity without hard-coding subsidy policy. All demo support rates are illustrative.
+### 3. Demand Density Engine
+Hard compatibility rules run before optimisation:
 
-## 3. Universal Reach Index
+`plot proximity + crop/stage + service/input + requested window + weather + drone capability + rule pack + service economics`
 
-A reason-coded block score asks whether compliant service is actually reachable, not merely whether drones exist.
+Evaluator journey: **67 fragmented demo requests → 9 executable demo missions**.
 
-Dimensions can include:
-- service availability;
-- response-time feasibility;
-- delivered affordability;
-- RPC capacity;
-- logistics/battery readiness;
-- evidence reliability;
-- small/marginal and remote/tribal coverage.
+The ₹486/ac → ₹329/ac values are an **illustrative scenario, not a measured Rajasthan saving**. The pilot is designed to measure the comparator.
 
-Every factor exposes its source, weight, freshness and remediation reason. No opaque AI ranking.
+### 4. Universal Service Coverage Engine
+A marketplace can report “no provider available”. Government needs an instrument to close the gap.
 
-## 4. Mission Compliance Passport
+```mermaid
+stateDiagram-v2
+    [*] --> GAP_DETECTED
+    GAP_DETECTED --> BUNDLING
+    BUNDLING --> CAPACITY_CALL
+    CAPACITY_CALL --> AWARDED
+    AWARDED --> SERVICING
+    SERVICING --> VERIFIED
+    VERIFIED --> CLOSED
+    SERVICING --> EXCEPTION
+    EXCEPTION --> SERVICING
+```
 
-Every mission carries an auditable chain:
+A coverage bundle can combine eligible acreage, provider capacity, SLA, logistics and **Department-configured** viability support. Demo support values are illustrative; the product does not invent subsidy authority.
 
-`consent + plot context → UIN reference → RPC reference → weather → airspace evidence → agronomic rule pack → provider declaration → execution → receipt`
+### 5. Mission Compliance + Agronomic Application Passport
+Each mission can carry:
+- farmer consent + plot context;
+- drone UIN reference;
+- RPC reference;
+- service/crop rule pack;
+- IMD weather evidence;
+- airspace / regulatory evidence reference;
+- provider declaration;
+- application/input traceability where applicable;
+- geo-track / telemetry;
+- farmer acknowledgement.
 
-The prototype does **not** claim to issue DGCA approvals.
+**AI may explain a rule. It cannot waive it.**
 
-## 5. Agronomic Application Passport
+### 6. Proof-of-Service + DBT evidence
+The atomic public-value unit is **verified acre-service**, not “booking” or “invoice”.
 
-Deterministic source-backed rules bind crop/service context, application profile, input batch, nozzle/profile, weather limits and operator declaration to the mission.
-
-**AI may explain a rule; it cannot waive it.**
-
-## 6. Proof-of-Service + DBT evidence
-
-Settlement readiness requires an atomic service receipt:
-
-- consented FarmerID / plot references;
-- authorised mission;
-- UIN/RPC references;
-- geo-track + actual treated/scouted area;
-- input/application traceability where applicable;
-- weather snapshot;
-- exceptions;
-- farmer acknowledgement;
-- receipt digest / audit trail.
+`MISSION_COMPLETE → EVIDENCE_VERIFIED → POLICY_ELIGIBLE → SETTLEMENT_READY`
 
 Government finance systems remain the settlement authority.
 
-## 7. Seasonal Capacity Digital Twin
+### 7. Seasonal Capacity Digital Twin
+Forecast crop/service demand against:
 
-Forecast service-acre demand by crop window and compare it against productive capacity:
+`active drones + payload capability + RPC hours + batteries + charging + transport + maintenance + weather-adjusted productive hours`
 
-`RPC pilots + drones + payloads + battery sets + transport + maintenance + service hours`
+The output is operational: **train pilots, stage batteries, create a transport hub, call external capacity or reserve available fleet**.
 
-This lets the Department train and stage capacity **before** farmers experience the shortage.
+### 8. Agri-Extension Campaign Command
+The MVP includes a separate extension surface:
 
-## 8. Extension Mission Exchange
+`signal → scouting mission → human/agronomic review → authorised action → follow-up → closure`
 
-The same operating grid supports Department/KVK campaigns for:
-- crop-health scouting;
-- pest surveillance;
-- mapping;
-- damage assessment;
-- targeted application under authorised rules;
-- post-intervention verification.
+This makes drones useful for crop-health scouting, pest surveillance, mapping, damage assessment, demonstrations and verified follow-up — not only spraying.
 
-Drones become an **agri-extension network**, not only spray equipment.
+### 9. Programme & Finance module
+A dedicated Government programme view includes:
+- 90-day joint-pilot compact;
+- scheme-convergence boundaries;
+- public-value / SLA logic;
+- Syntheon institutional revenue model;
+- outcomes for farmers, providers, Drone Didis/FPOs/CHCs, officers, KVKs and trainees.
 
-## 9. SUTRA ID Edge — optional last-mile resilience
-
-SUTRA ID Edge is an optional weak-connectivity field adapter for KVK/camp/extension workflows:
-
-`Hindi/voice-assisted intake → FarmerID/plot ref → consent → mission manifest → acknowledgement → encrypted store-and-forward`
-
-The central Grid remains usable without proprietary hardware.
-
-## 10. FarmGraph — optional intelligence loop
-
-FarmGraph can provide an optional crop-risk/need signal and post-mission analysis:
-
-**Sense → Decide → Act → Verify → Learn**
-
-It is clearly labelled optional and is not represented as Government of Rajasthan infrastructure.
+### 10. Live IMD public gateway
+The server-side `/api/imd` route tests the official public district-nowcast gateway and degrades gracefully. This is the only external Government feed intentionally labelled `LIVE_PUBLIC` in the MVP.
 
 ---
 
-# Current Rajasthan / Government evidence baseline
+# Government infrastructure we enhance — not replace
 
-These are current public facts used to ground the proposal — **not** demo operating KPIs.
+| Rail | Existing authority / role | RAJ-KRISHI role | MVP status |
+|---|---|---|---|
+| **RajKisan / SSO / Jan Aadhaar / e-Mitra** | State service access / identity-assisted journeys | familiar entry / assisted-service adapter | `DEMO_ONLY / ADAPTER_READY` |
+| **AgriStack / UFSI** | Farmer / farmland plot / crop registries with consent architecture | service references, no parallel farmer master | `CONTRACT_DEFINED` |
+| **DGCA eGCA / Digital Sky** | UIN, RPC/RPTO and regulatory / airspace workflows | evidence adapter / state machine | `AUTH_REQUIRED` |
+| **IMD** | official weather / warnings / nowcast | mission weather context | `LIVE_PUBLIC` |
+| **FARMS / CHC** | machinery / custom-hiring capacity | provider-capacity federation | `FEDERATION_READY` |
+| **NaMo Drone Didi MIS** | programme asset / pilot / utilisation monitoring | cross-provider demand / mission federation | `FEDERATION_READY` |
+| **KVK / DGCA-authorised RPTO** | extension / agronomic support / regulated training | gap-led capacity pipeline | `WORKFLOW_DEFINED` |
+| **DBT / State treasury** | public-money authority | evidence / reconciliation package | `SIMULATED` |
+| **SUTRA ID Edge** | optional Syntheon last-mile node | offline voice / consent / acknowledgement | `OPTIONAL_EDGE` |
+| **FarmGraph** | optional Syntheon intelligence | need prioritisation / follow-up | `OPTIONAL_AI` |
 
-- **87,23,010 Rajasthan Farmer IDs** generated as of **20 July 2026** (PIB / AgriStack progress).
-- **47 KVKs in Rajasthan** (ICAR ATARI Zone-II directory).
-- **40 Rajasthan SHGs** in the reported NaMo Drone Didi drone-distribution / pilot-training table as of Jan 2026; this is a scheme baseline, not Rajasthan's total fleet.
-- **274 DGCA-approved RPTOs nationally** reported July 2026.
-- DGCA moved UIN and fresh RPC regulatory services from Digital Sky to **eGCA from July 2025**.
-- IMD publishes official public district-nowcast/warning APIs.
-- Government ADRTC evaluation has highlighted real operating constraints such as battery endurance and transport; among Drone Didis without utility vehicles in the cited study, **42.68% reported transportation difficulty**.
-
-See [`docs/RESEARCH_EVIDENCE_REGISTER.md`](docs/RESEARCH_EVIDENCE_REGISTER.md).
-
----
-
-# Integration truth matrix
-
-| System | Prototype status | Authority principle |
-|---|---|---|
-| IMD public APIs | `LIVE_PUBLIC` | Public weather gateway |
-| RajKisan / assisted channels | `ADAPTER_READY` | Department authority |
-| AgriStack / UFSI | `CONTRACT_DEFINED` | State registry + consent |
-| DGCA eGCA / Digital Sky | `AUTH_REQUIRED` | DGCA remains regulatory authority |
-| DBT / treasury | `SIMULATED` | Government finance remains settlement authority |
-| NaMo Drone Didi MIS | `FEDERATION_READY` | Subject to programme approval |
-| FARMS / CHC | `FEDERATION_READY` | Existing capacity layer |
-| SUTRA ID Edge | `OPTIONAL_EDGE` | Offline field channel |
-| FarmGraph | `OPTIONAL_AI` | Advisory intelligence only |
-
-**Nothing fake. Everything architected. Every authority boundary visible.**
+**Nothing privileged is represented as live without credentials and authorisation.**
 
 ---
 
-# Judge journey
+# Why the policy timing is strong
 
-The UI includes a guided six-step evaluator journey:
+Current public policy signals reinforce an orchestration-first approach:
 
-1. aggregate fragmented demand;
-2. close an underserved-block access gap;
-3. gate a mission for compliance/agronomy/weather;
-4. verify every acre-service and prepare settlement evidence;
-5. forecast missing fleet/RPC/logistics capacity;
-6. inspect the Government integration fabric.
+- Rajasthan has **87,23,010 Farmer IDs** reported as of **20 July 2026**, making a federated farmer/plot reference model increasingly practical.
+- ICAR lists **47 KVKs in Rajasthan**, creating a natural extension / training mesh.
+- PIB reported **40 Rajasthan SHGs** in the relevant NaMo Drone Didi drone-distribution / pilot-training table as of January 2026. This is a scheme baseline, **not** Rajasthan's total drone fleet.
+- NaMo Drone Didi operating guidelines expect States to help selected SHGs generate sufficient business to cover roughly **2,000–2,500 acres annually** and already include an IT Drone Portal for programme MIS — strengthening the need for demand-density and multi-provider utilisation rather than another scheme MIS.
+- DGCA migrated UIN and fresh RPC services from Digital Sky to **eGCA from July 2025**.
+- The **11 August 2026** national farm-mechanisation update reiterates SMAM's focus on small/marginal farmers and low-mechanisation regions, supports CHCs and encourages precision agriculture / drones — directly aligned with a service-grid model.
 
-Full script: [`docs/JUDGE_DEMO_RUNBOOK.md`](docs/JUDGE_DEMO_RUNBOOK.md)
+Primary-source register: [`docs/RESEARCH_EVIDENCE_REGISTER.md`](docs/RESEARCH_EVIDENCE_REGISTER.md)
 
 ---
 
-# 90-day controlled pilot
+# Scheme convergence — disciplined, not opportunistic
 
-### Days 0–30 — authority, contracts and orchestration
-Policy packs, approved adapters, provider/RPC onboarding, IMD, clustering, Reach Index and synthetic/sandbox end-to-end mission.
+The MVP distinguishes **existing scheme authority** from **proposed pilot convergence**.
 
-### Days 31–60 — controlled field execution
-Authorised providers, assisted farmer journeys, real field missions where approved, proof-of-service, settlement evidence and optional SUTRA weak-connectivity test.
+| Programme / rail | Existing relevance | What we propose | What we do **not** assume |
+|---|---|---|---|
+| SMAM / RKVY mechanisation | CHCs, demonstrations, mechanisation support | integrate eligible providers / assets and measure utilisation | that any current asset subsidy can automatically fund our service-fee pilot |
+| NaMo Drone Didi | women-led drone service capacity + scheme MIS | route suitable pooled demand to eligible capacity subject to approval | ownership of Drone Didi MIS / programme authority |
+| AgriStack | farmer / plot / crop DPI | consented reference layer | copying the state registry into our own master |
+| RajKisan / Jan Aadhaar / SSO | citizen and departmental rails | assisted intake / identity handoff | live authentication without Government credentials |
+| KVK / RPTO | extension + training | forecast-led candidate / capacity pipeline | issuing RPC ourselves |
+| IMD / eGCA / Digital Sky | weather + regulatory workflows | evidence adapters | autonomous flight authorisation |
 
-### Days 61–90 — measurement and scale
-Before/after economics, low-reach-block closure, provider utilisation, RPC/battery/logistics capacity forecast, security review and state rollout plan.
+Detailed matrix: [`docs/SCHEME_CONVERGENCE_AND_PUBLIC_VALUE.md`](docs/SCHEME_CONVERGENCE_AND_PUBLIC_VALUE.md)
 
-**No core pilot budget is reserved for buying a new fleet.** The pilot first tests whether suitable existing authorised public/private capacity can be activated more effectively.
+---
 
-Acceptance plan: [`docs/PILOT_ACCEPTANCE_PLAN.md`](docs/PILOT_ACCEPTANCE_PLAN.md)
+# Joint 90-day pilot
+
+### Proposed operating compact
+
+| Participant | Proposed pilot responsibility |
+|---|---|
+| **Department of Agriculture, Rajasthan** | policy authority, pilot geography, credentials, approvals, acceptance, scale decision |
+| **Syntheon** | MVP platform, GIS, adapters, orchestration, evidence, security/UAT, PMO, training and handover |
+| **KVK / extension network** | agronomic validation, mobilisation, campaign workflow, demonstrations, trainee funnel |
+| **DGCA-authorised RPTO** | RPC training/certification pathway |
+| **Drone Didi / FPO / CHC / authorised private DSP** | fleet, licensed operator, maintenance, mission execution, telemetry |
+| **e-Mitra / optional SUTRA-assisted field channel** | assisted access and weak-connectivity continuity where approved |
+
+These are **proposed roles, not claimed partnerships**.
+
+### Phase 1 · Days 0–30
+Authority matrix, approved data contracts, provider/RPC onboarding, live IMD, rule packs, Demand Density, Reach Index, end-to-end sandbox mission.
+
+### Phase 2 · Days 31–60
+Controlled authorised field missions, provider workflow, assisted farmer journey, proof-of-service, exception/grievance flow, settlement evidence, optional SUTRA offline test.
+
+### Phase 3 · Days 61–90
+Measured economics, reach improvement, provider/Drone Didi utilisation, RPC/logistics forecast, security review, acceptance report and state-scale implementation plan.
+
+Pilot acceptance plan: [`docs/PILOT_ACCEPTANCE_PLAN.md`](docs/PILOT_ACCEPTANCE_PLAN.md)
 
 ---
 
 # Indicative financial proposal
 
-**₹74.80 lakh for a 90-day controlled pilot**, subject to Department scope/final procurement terms.
+## **₹74.80 lakh · 90-day controlled pilot · ₹0 core drone procurement**
 
-The ask is concentrated on:
-- product/GIS/orchestration;
-- demand + coverage optimisation;
-- approved system adapters;
-- compliance/agronomic rule packs;
-- provider/field workflows;
-- proof-of-service + audit;
-- security/privacy;
-- pilot operations, UAT, training and handover;
-- measured scale plan.
+The pilot buys the missing **state service capability**, not another fleet:
 
-The public-value unit is **₹ per verified acre-service**, not number of app downloads or number of drones purchased.
+- product + GIS + orchestration;
+- demand-density and universal-coverage engines;
+- approved adapters / data contracts;
+- compliance and agronomic rule packs;
+- provider / officer / field workflows;
+- proof-of-service and audit;
+- security, privacy, observability and UAT;
+- pilot operations, training, PMO and handover;
+- measured statewide scale plan.
 
----
-
-# Evaluation artefacts
-
-- [`docs/EVALUATOR_SCORECARD.md`](docs/EVALUATOR_SCORECARD.md)
-- [`docs/RESEARCH_EVIDENCE_REGISTER.md`](docs/RESEARCH_EVIDENCE_REGISTER.md)
-- [`docs/JUDGE_DEMO_RUNBOOK.md`](docs/JUDGE_DEMO_RUNBOOK.md)
-- [`docs/PILOT_ACCEPTANCE_PLAN.md`](docs/PILOT_ACCEPTANCE_PLAN.md)
+**Primary public-value unit:** `₹ / verified acre-service`.
 
 ---
 
-# Architecture
+# Sustainable service / revenue model
+
+Syntheon's proposed model is Government/institutional — **not farmer-data monetisation and not a mandatory farmer subscription**.
+
+1. **Implementation & integration** — one-time configuration, GIS, approved adapters, security/UAT, policy/rule packs and onboarding.
+2. **Managed platform / O&M** — annual hosting, SLA support, observability, security, upgrades, analytics and training.
+3. **Verified-service orchestration** — optional procurement-permitted fee linked to verified mission volume/SLA, where Government chooses this commercial structure.
+4. **Optional field edge / enablement** — SUTRA nodes, device management and field support only where operational conditions justify them.
+5. **State-to-state deployment** — UFSI-compatible configurations without creating a proprietary national farmer database.
+
+Commercial detail: [`docs/COMMERCIAL_AND_SCALE_MODEL.md`](docs/COMMERCIAL_AND_SCALE_MODEL.md)
+
+---
+
+# Future vision — from drone pilot to physical agri-service grid
+
+```mermaid
+flowchart LR
+    A[90 days\nControlled DaaS MVP pilot] --> B[12 months\nRajasthan Drone Mission Exchange]
+    B --> C[24 months\nAgri-Extension Digital Twin]
+    C --> D[36 months\nMechanisation Service Grid]
+    D --> E[2030\nInteroperable Bharat Agri Mission Grid]
+```
+
+The architecture can later extend — subject to Government priorities — from drone scouting/application to selected CHC machinery, sensing, mapping, soil/testing and other **verified physical agricultural services**. The 11 Aug 2026 mechanisation update makes this broader CHC/service-grid direction especially timely.
+
+---
+
+# SUTRA ID Edge — use only where it creates public value
+
+Optional field node for low-connectivity / assisted journeys:
 
 ```text
-RajKisan / assisted channel / optional SUTRA
-                    │
-                    ▼
-          consent + service request
-                    │
-        AgriStack FarmerID / plot / crop
-                    │
-                    ▼
-          Demand Density Engine
-                    │
-      ┌─────────────┼─────────────┐
-      ▼             ▼             ▼
-Universal Reach   IMD weather   Agronomic rules
-& Coverage         context       + service policy
-Contract              │             │
-      └─────────────┬─┴─────────────┘
-                    ▼
-         Mission Compliance Passport
-        eGCA / Digital Sky evidence
-                    │
-                    ▼
-    Drone Didi / FPO / CHC / private DSP
-                    │
-                    ▼
-            Mission execution
-       geo-track + telemetry + evidence
-                    │
-                    ▼
-          Proof-of-Service receipt
-                    │
-        ┌───────────┴───────────┐
-        ▼                       ▼
- settlement evidence        extension / outcome
- (DBT/treasury authority)    intelligence / AgriStack
+voice / Hindi-assisted intake
+        ↓
+masked FarmerID / plot reference
+        ↓
+consent + mission request
+        ↓
+offline mission cache / field evidence
+        ↓
+farmer acknowledgement
+        ↓
+encrypted store-and-forward sync
+```
+
+**SUTRA is not required for the central Grid and never becomes identity/regulatory authority.**
+
+---
+
+# Security, privacy and authority model
+
+- minimum mission-required data;
+- references to source registries rather than unnecessary copies;
+- role-based access and purpose limitation;
+- versioned rule / policy packs;
+- auditable state transitions;
+- evidence hashes / append-only event posture;
+- external authorities remain authoritative;
+- no Aadhaar or Jan Aadhaar values are required in the evaluator demo;
+- Vercel security headers + India-region function preference prepared;
+- production deployment still requires Department security, privacy and API approval.
+
+Authority matrix: [`docs/GOVERNANCE_AUTHORITY_MATRIX.md`](docs/GOVERNANCE_AUTHORITY_MATRIX.md)
+
+---
+
+# Guided evaluator demo · ~3 minutes
+
+1. Open **Evaluator Access** on the MVP login screen.
+2. Enter **Operations** and start **Run Judge Journey**.
+3. Demonstrate `67 requests → 9 missions`.
+4. Open **Universal Reach** and show how a remote-block gap becomes a service-capacity problem Government can close.
+5. Open **Mission Control** and inspect regulatory + agronomic gates.
+6. Open **Evidence & DBT** and show why invoice ≠ proof-of-service.
+7. Open **Fleet & RPC Capacity** and show gap-led training/logistics.
+8. Open **Extension Campaigns** from the top module switcher.
+9. Open **Programme & Finance** to show joint pilot, scheme convergence and sustainable Government service model.
+10. Open **Government Integration Fabric** and end on truthful authority boundaries.
+
+Full runbook: [`docs/JUDGE_DEMO_RUNBOOK.md`](docs/JUDGE_DEMO_RUNBOOK.md)
+
+---
+
+# Repository map
+
+```text
+app/
+  page.tsx                    → MVP entry
+  mvp-access.tsx              → splash, dummy SSO/Jan Aadhaar, extension + programme modules
+  command-v2.tsx              → core operations command centre
+  map-panel.tsx               → interactive GIS missions + coverage gaps
+  api/imd/route.ts            → live public IMD gateway / graceful fallback
+
+docs/
+  EVALUATOR_SCORECARD.md
+  RESEARCH_EVIDENCE_REGISTER.md
+  JUDGE_DEMO_RUNBOOK.md
+  PILOT_ACCEPTANCE_PLAN.md
+  GOVERNANCE_AUTHORITY_MATRIX.md
+  SCHEME_CONVERGENCE_AND_PUBLIC_VALUE.md
+  COMMERCIAL_AND_SCALE_MODEL.md
+  VERCEL_DEPLOYMENT_AND_RELEASE.md
+  FINAL_SUBMISSION_FREEZE_CHECKLIST.md
 ```
 
 ---
@@ -293,24 +372,76 @@ Contract              │             │
 # Run locally
 
 ```bash
-npm install
+npm install --no-audit --no-fund
+npm run check
 npm run dev
 ```
 
 Open `http://localhost:3000`.
 
-### Build-validation status
+Production gate:
 
-The repository includes a GitHub Actions TypeScript + production-build gate. At the time of this submission revamp, the hosted Actions job is failing **before a runner starts** (`runner_id: 0`, no executed steps), so it must not be represented as a passing code build. The code remains on a feature branch / PR until a full build and browser journey are confirmed.
+```bash
+npm run check
+npm run build
+npm start
+```
 
 ---
 
-## Credibility rules
+# Vercel readiness
 
-1. Demo operating numbers are labelled synthetic.
-2. Live integrations are labelled live only when actually reachable/authorised.
-3. AI cannot override regulatory, agronomic or public-money authority.
-4. Demo subsidy/support values are illustrative; Department policy is authoritative.
-5. Farmer/plot registries are referenced, not needlessly copied.
-6. Yield/outcome improvements are measured, not promised.
-7. Every public-value metric must trace to evidence.
+The repository includes:
+- pinned Next.js **15.5.24 Maintenance LTS security release**;
+- Node `22.x` runtime declaration;
+- `vercel.json` with Next.js build settings, Mumbai-region preference and baseline security headers;
+- `/api/imd` server route with graceful fallback;
+- TypeScript + production-build GitHub Actions gate.
+
+The hosted GitHub Actions runner previously failed before executing workflow steps, so **we do not claim a passing remote CI run until a runner actually executes the current commit**. Deployment/release guide: [`docs/VERCEL_DEPLOYMENT_AND_RELEASE.md`](docs/VERCEL_DEPLOYMENT_AND_RELEASE.md).
+
+---
+
+# What we deliberately do **not** claim
+
+- ❌ This MVP is not an official Government of Rajasthan production portal.
+- ❌ Dummy SSO / Jan Aadhaar screens do not authenticate against live Government systems.
+- ❌ We do not issue Farmer ID, Jan Aadhaar, UIN or RPC credentials.
+- ❌ We do not grant airspace or statutory pesticide/application permission.
+- ❌ We do not autonomously decide chemical treatment from AI imagery.
+- ❌ Demo subsidy/support values are not current Rajasthan policy.
+- ❌ The ₹486/ac → ₹329/ac scenario is not a measured field saving.
+- ❌ 40 Drone Didi SHGs is not Rajasthan's total drone fleet.
+- ❌ We do not promise yield improvement before measurement.
+
+That discipline is part of the product.
+
+---
+
+# Primary public references
+
+1. Rajasthan Innovation Challenge 2026 — Agriculture challenge: Drone-as-a-Service for Universal Agri-Extension Reach.
+2. RajKisan, Government of Rajasthan — departmental SSO and farmer/citizen SSO / Jan Aadhaar-assisted login workflows.
+3. Rajasthan Jan Aadhaar Authority — 10-digit family ID, Aadhaar-backed authentication/e-KYC and DBT/public-service role.
+4. AgriStack / Digital Agriculture Mission — federated Farmer Registry, geo-referenced farmland and Crop Sown Registry / UFSI architecture.
+5. DGCA — 03 Jul 2025 notice migrating UIN and fresh RPC services from Digital Sky to eGCA.
+6. IMD public API reference — district nowcast / warning services.
+7. PIB — 20 Jul 2026 Rajasthan Farmer-ID progress: 87,23,010.
+8. ICAR — Rajasthan KVK network: 47.
+9. PIB — 13 Feb 2026 Drone Didi state table; Rajasthan: 40 in the reported scheme baseline.
+10. PIB — NaMo Drone Didi operational guidelines: State support for roughly 2,000–2,500 acres/year business + programme Drone Portal/MIS.
+11. ICAR-NIAP Policy Brief 65 — operating/economic constraints observed in Drone Didi field study.
+12. PIB — 11 Aug 2026 farm-mechanisation update: SMAM smallholder/low-mechanisation focus, CHC support and encouragement of drones/precision tools.
+
+See the evidence register for URLs, dates, claim type and caveats.
+
+---
+
+<div align="center">
+
+### **IDENTIFY → AGGREGATE → REACH → COMPLY → SERVE → PROVE → PAY → LEARN**
+
+**RAJ-KRISHI DRONE GRID · MVP PROTOTYPE**  
+*State orchestration for universal, evidence-backed agricultural drone service.*
+
+</div>
