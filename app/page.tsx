@@ -1,5 +1,5 @@
-import CommandCenterV2 from './command-v2';
+import MvpAccess from './mvp-access';
 
 export default function Page() {
-  return <CommandCenterV2 />;
+  return <MvpAccess />;
 }
