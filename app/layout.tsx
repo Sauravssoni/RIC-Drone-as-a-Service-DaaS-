@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import 'leaflet/dist/leaflet.css';
 import './globals.css';
+import './corrections.css';
+import LiveGatewayStatus from './live-gateway-status';
 
 export const metadata: Metadata = {
   title: 'RAJ-KRISHI DRONE GRID | Rajasthan Agriculture',
@@ -11,7 +13,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <LiveGatewayStatus />
+      </body>
     </html>
   );
 }
